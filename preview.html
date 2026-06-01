@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spottvogel</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Arial,Helvetica,sans-serif;background:#f7f7f4;color:#111;line-height:1.6}header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.9);border-bottom:1px solid #e8e8e3;position:sticky;top:0;z-index:10;backdrop-filter:blur(10px)}.logo{font-size:1.4rem;font-weight:900;letter-spacing:-.05em}nav a{margin-left:22px;text-decoration:none;color:#111;font-size:.95rem}nav a:hover{text-decoration:underline}.hero{padding:95px 7% 75px;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}.badge{display:inline-block;background:#e5efdc;border:1px solid #d2e2c7;padding:8px 14px;border-radius:999px;font-size:.9rem;margin-bottom:22px}h1{font-size:clamp(4rem,10vw,8.5rem);line-height:.88;letter-spacing:-.09em;margin-bottom:24px}.hero p{font-size:1.25rem;color:#444;max-width:650px;margin-bottom:30px}.btn{display:inline-block;background:#111;color:#fff;text-decoration:none;padding:14px 24px;border-radius:999px;font-weight:800}.hero-panel{background:#111;color:white;border-radius:34px;min-height:390px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 28px 70px rgba(0,0,0,.14)}.hero-panel small{color:#bfe8aa}.hero-panel h2{font-size:2.7rem;line-height:.95;letter-spacing:-.06em}section{padding:80px 7%}.section-title{font-size:clamp(2.2rem,5vw,4.3rem);line-height:1;letter-spacing:-.07em;margin-bottom:35px}.cards,.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card,.post,.cms-box{background:#fff;border:1px solid #e4e4de;border-radius:26px;padding:28px}.card{min-height:230px}.icon{font-size:2rem;margin-bottom:16px}.card h3,.post h3{font-size:1.45rem;letter-spacing:-.04em;margin-bottom:12px}.card p,.post p,.about p,.editorial p,footer p{color:#555}.featured{display:grid;grid-template-columns:.85fr 1.15fr;gap:26px;align-items:stretch}.featured-art{background:#111;color:#fff;border-radius:32px;padding:38px;min-height:310px;display:flex;flex-direction:column;justify-content:flex-end}.featured-art small{color:#bfe8aa}.featured-art h2{font-size:3rem;line-height:.95;letter-spacing:-.06em;margin:12px 0}.featured-note{background:#e5efdc;border-radius:32px;padding:38px}.post small{display:block;color:#777;margin-bottom:10px}.about{margin:50px 7%;padding:70px;background:#111;color:#fff;border-radius:38px}.about p{color:#ddd;max-width:850px;font-size:1.12rem}.editorial{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.cms-row{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:16px 0}.cms-row:last-child{border-bottom:0}.check{font-weight:900}footer{padding:50px 7%;display:grid;grid-template-columns:1fr 1fr;gap:26px;background:#fff;border-top:1px solid #e4e4de}footer h2{font-size:2.2rem;letter-spacing:-.06em;margin-bottom:14px}@media(max-width:850px){header{flex-direction:column;gap:14px}nav{text-align:center}nav a{margin:0 7px;font-size:.9rem}.hero,.featured,.editorial,footer{grid-template-columns:1fr}.cards,.posts{grid-template-columns:1fr}.about{margin:20px 0;border-radius:0;padding:60px 7%}.hero-panel{min-height:300px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Spottvogel</div>
+    <nav>
+      <a href="#start">Start</a>
+      <a href="#rubriken">Rubriken</a>
+      <a href="#beitraege">Beiträge</a>
+      <a href="#redaktion">Redaktion</a>
+      <a href="#impressum">Impressum</a>
+    </nav>
+  </header>
+
+  <main id="start">
+    <section class="hero">
+      <div>
+        <span class="badge">Journalistische Schulplattform</span>
+        <h1>Spottvogel</h1>
+        <p>Beobachten. Schreiben. Schmunzeln. Ein digitales Schulmagazin für Notizen, Spottverse und kleine Lebensweisheiten aus dem Schulalltag.</p>
+        <a class="btn" href="#beitraege">Neueste Beiträge</a>
+      </div>
+      <aside class="hero-panel">
+        <small>Gebührenfrei · minimal · redaktionell</small>
+        <h2>Ein Ort für Gedanken, Beobachtungen und faire Satire.</h2>
+      </aside>
+    </section>
+
+    <section id="rubriken">
+      <h2 class="section-title">Rubriken</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="icon">📝</div>
+          <h3>Notizen</h3>
+          <p>Kurze Berichte, Beobachtungen und interessante Geschichten aus dem Schulalltag.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🎭</div>
+          <h3>Spottverse</h3>
+          <p>Kreative und humorvolle Verse mit einem Augenzwinkern. Witzig, aber fair.</p>
+        </article>
+        <article class="card">
+          <div class="icon">💡</div>
+          <h3>Lebensweisheiten</h3>
+          <p>Gedanken, Zitate und Erfahrungen, die zum Nachdenken anregen.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Artikel der Woche</h2>
+      <div class="featured">
+        <div class="featured-art">
+          <small>Notizen</small>
+          <h2>Warum Montag immer zu früh kommt</h2>
+          <p>Zwischen Wecker, Schulbus und erster Stunde beginnt jede Woche mit demselben Kampf.</p>
+        </div>
+        <div class="featured-note">
+          <h3>Redaktioneller Hinweis</h3>
+          <p>Spottvogel ist humorvoll, aber respektvoll. Es werden keine Personen bloßgestellt. Inhalte dienen schulischen und journalistischen Zwecken.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="beitraege">
+      <h2 class="section-title">Aktuelle Beiträge</h2>
+      <div class="posts">
+        <article class="post"><small>Spottvers</small><h3>Der WLAN-Router spricht</h3><p>Ein humorvoller Vers über geheimnisvolle Ausfälle des Schul-WLANs.</p></article>
+        <article class="post"><small>Notiz</small><h3>Die Kunst des Zuspätkommens</h3><p>Eine kleine Beobachtung über Ausreden, Uhren und volle Flure.</p></article>
+        <article class="post"><small>Lebensweisheit</small><h3>Erfolg beginnt mit Vorbereitung</h3><p>Manchmal kostet Vorbereitung weniger Zeit als eine gute Ausrede.</p></article>
+      </div>
+    </section>
+
+    <section class="about">
+      <h2 class="section-title">Über Spottvogel</h2>
+      <p>Spottvogel ist ein journalistisches Schulprojekt, das kreative Beiträge, Beobachtungen und Gedanken aus dem Schulalltag veröffentlicht. Die Website ist gebührenfrei, übersichtlich aufgebaut und für eine einfache redaktionelle Pflege gedacht.</p>
+    </section>
+
+    <section class="editorial" id="redaktion">
+      <div>
+        <h2 class="section-title">Redaktion / CMS</h2>
+        <p>Über ein Content-Management-System können neue Beiträge erstellt, bearbeitet, Kategorien zugeordnet und veröffentlicht werden. So bleibt die Website leicht pflegbar.</p>
+      </div>
+      <div class="cms-box">
+        <div class="cms-row"><strong>Beitrag erstellen</strong><span class="check">✓</span></div>
+        <div class="cms-row"><strong>Kategorie auswählen</strong><span class="check">✓</span></div>
+        <div class="cms-row"><strong>Text bearbeiten</strong><span class="check">✓</span></div>
+        <div class="cms-row"><strong>Veröffentlichen</strong><span class="check">✓</span></div>
+        <div class="cms-row"><strong>Beiträge verwalten</strong><span class="check">✓</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="impressum">
+    <div>
+      <h2>Impressum</h2>
+      <p><strong>Spottvogel</strong> — Schulprojekt</p>
+      <p>Erstellt im Rahmen der Servicepraxis.</p>
+    </div>
+    <div>
+      <p><strong>Institution:</strong> OSZ Technik Teltow</p>
+      <p><strong>Zweck:</strong> journalistisches Schulprojekt, nicht kommerziell</p>
+      <p><strong>Verantwortlich:</strong> Projektgruppe Spottvogel</p>
+    </div>
+  </footer>
+</body>
+</html>
