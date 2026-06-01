@@ -5,235 +5,694 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spottvogel</title>
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Arial,Helvetica,sans-serif;background:#f7f7f4;color:#111;line-height:1.6}header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.9);border-bottom:1px solid #e8e8e3;position:sticky;top:0;z-index:10;backdrop-filter:blur(10px)}.logo{font-size:1.4rem;font-weight:900;letter-spacing:-.05em}nav a{margin-left:22px;text-decoration:none;color:#111;font-size:.95rem}nav a:hover{text-decoration:underline}.hero{padding:95px 7% 75px;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}.badge{display:inline-block;background:#e5efdc;border:1px solid #d2e2c7;padding:8px 14px;border-radius:999px;font-size:.9rem;margin-bottom:22px}h1{font-size:clamp(4rem,10vw,8.5rem);line-height:.88;letter-spacing:-.09em;margin-bottom:24px}.hero p{font-size:1.25rem;color:#444;max-width:650px;margin-bottom:30px}.btn{display:inline-block;background:#111;color:#fff;text-decoration:none;padding:14px 24px;border-radius:999px;font-weight:800}.hero-panel{background:#111;color:white;border-radius:34px;min-height:390px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 28px 70px rgba(0,0,0,.14)}.hero-panel small{color:#bfe8aa}.hero-panel h2{font-size:2.7rem;line-height:.95;letter-spacing:-.06em}section{padding:80px 7%}.section-title{font-size:clamp(2.2rem,5vw,4.3rem);line-height:1;letter-spacing:-.07em;margin-bottom:35px}.cards,.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card,.post,.cms-box{background:#fff;border:1px solid #e4e4de;border-radius:26px;padding:28px}.card{min-height:230px}.icon{font-size:2rem;margin-bottom:16px}.card h3,.post h3{font-size:1.45rem;letter-spacing:-.04em;margin-bottom:12px}.card p,.post p,.about p,.editorial p,footer p{color:#555}.featured{display:grid;grid-template-columns:.85fr 1.15fr;gap:26px;align-items:stretch}.featured-art{background:#111;color:#fff;border-radius:32px;padding:38px;min-height:310px;display:flex;flex-direction:column;justify-content:flex-end}.featured-art small{color:#bfe8aa}.featured-art h2{font-size:3rem;line-height:.95;letter-spacing:-.06em;margin:12px 0}.featured-note{background:#e5efdc;border-radius:32px;padding:38px}.post small{display:block;color:#777;margin-bottom:10px}.about{margin:50px 7%;padding:70px;background:#111;color:#fff;border-radius:38px}.about p{color:#ddd;max-width:850px;font-size:1.12rem}.editorial{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.cms-row{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:16px 0}.cms-row:last-child{border-bottom:0}.check{font-weight:900}footer{padding:50px 7%;display:grid;grid-template-columns:1fr 1fr;gap:26px;background:#fff;border-top:1px solid #e4e4de}footer h2{font-size:2.2rem;letter-spacing:-.06em;margin-bottom:14px}@media(max-width:850px){header{flex-direction:column;gap:14px}nav{text-align:center}nav a{margin:0 7px;font-size:.9rem}.hero,.featured,.editorial,footer{grid-template-columns:1fr}.cards,.posts,.manage-posts{grid-template-columns:1fr}.about{margin:20px 0;border-radius:0;padding:60px 7%}.hero-panel{min-height:300px}}
+    :root{
+      --bg:#f7f7f2;
+      --paper:#ffffff;
+      --ink:#111111;
+      --muted:#62625f;
+      --line:#e4e4dc;
+      --accent:#dceccd;
+      --accent-dark:#2f4a28;
+      --shadow:0 24px 70px rgba(0,0,0,.08);
+      --radius:28px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter, Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.6;
+    }
+
+    a{color:inherit}
+    .wrap{width:min(1120px,88vw);margin:auto}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(247,247,242,.88);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand{
+      font-weight:900;
+      font-size:1.35rem;
+      letter-spacing:-.05em;
+      text-decoration:none;
+    }
+
+    nav{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      font-size:.95rem;
+      font-weight:600;
+    }
+
+    nav a:hover{color:var(--ink)}
+
+    section{padding:82px 0}
+
+    .hero{
+      min-height:82vh;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      align-items:center;
+      gap:52px;
+      padding:86px 0;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:var(--accent);
+      color:var(--accent-dark);
+      font-size:.9rem;
+      font-weight:700;
+      margin-bottom:24px;
+    }
+
+    h1{
+      font-size:clamp(4rem,11vw,8.8rem);
+      line-height:.86;
+      letter-spacing:-.1em;
+      margin-bottom:26px;
+    }
+
+    .lead{
+      font-size:clamp(1.08rem,2vw,1.32rem);
+      color:#3f3f3c;
+      max-width:670px;
+      margin-bottom:34px;
+    }
+
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+
+    .btn{
+      border:0;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:46px;
+      padding:13px 20px;
+      border-radius:999px;
+      background:var(--ink);
+      color:white;
+      text-decoration:none;
+      font-weight:800;
+      font-size:.95rem;
+    }
+
+    .btn.secondary{
+      background:transparent;
+      color:var(--ink);
+      border:1px solid var(--line);
+    }
+
+    .hero-card{
+      background:var(--ink);
+      color:white;
+      min-height:410px;
+      border-radius:36px;
+      padding:34px;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:var(--accent);
+      opacity:.22;
+      right:-60px;
+      top:-60px;
+    }
+
+    .hero-card small{color:#c8eeb8;font-weight:700}
+    .hero-card h2{
+      font-size:clamp(2.1rem,4vw,3.2rem);
+      line-height:.95;
+      letter-spacing:-.06em;
+      position:relative;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:24px;
+      margin-bottom:34px;
+    }
+
+    .section-title{
+      font-size:clamp(2.4rem,5vw,4.4rem);
+      line-height:.95;
+      letter-spacing:-.075em;
+    }
+
+    .section-note{
+      max-width:420px;
+      color:var(--muted);
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:28px;
+      min-height:230px;
+      box-shadow:0 14px 45px rgba(0,0,0,.035);
+    }
+
+    .card .icon{
+      width:48px;
+      height:48px;
+      border-radius:16px;
+      background:var(--accent);
+      display:grid;
+      place-items:center;
+      margin-bottom:20px;
+      font-size:1.45rem;
+    }
+
+    .card h3,.post h3{
+      font-size:1.35rem;
+      letter-spacing:-.04em;
+      margin-bottom:12px;
+    }
+
+    .card p,.post p,.muted{color:var(--muted)}
+
+    .feature{
+      display:grid;
+      grid-template-columns:.85fr 1.15fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .feature-main{
+      background:var(--ink);
+      color:white;
+      border-radius:36px;
+      padding:34px;
+      min-height:330px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      box-shadow:var(--shadow);
+    }
+
+    .feature-main small{color:#c8eeb8;font-weight:700}
+    .feature-main h2{
+      font-size:clamp(2.2rem,4vw,3.5rem);
+      line-height:.95;
+      letter-spacing:-.065em;
+      margin:12px 0;
+    }
+
+    .feature-side{
+      background:var(--accent);
+      border-radius:36px;
+      padding:34px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      color:#23361f;
+    }
+
+    .posts{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .post{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-height:230px;
+    }
+
+    .tag{
+      width:max-content;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#f0f0ea;
+      color:var(--muted);
+      font-size:.78rem;
+      font-weight:800;
+    }
+
+    .about{
+      background:var(--ink);
+      color:white;
+      border-radius:38px;
+      padding:66px;
+      box-shadow:var(--shadow);
+    }
+
+    .about p{color:#dddddd;max-width:820px;font-size:1.1rem}
+
+    .editor-layout{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:26px;
+      align-items:start;
+    }
+
+    .panel{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:0 14px 45px rgba(0,0,0,.035);
+    }
+
+    label{
+      display:block;
+      font-weight:800;
+      font-size:.9rem;
+      margin:15px 0 7px;
+    }
+
+    input,select,textarea{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:13px 14px;
+      background:#fbfbf8;
+      color:var(--ink);
+      font:inherit;
+      outline:none;
+    }
+
+    textarea{min-height:130px;resize:vertical}
+    input:focus,select:focus,textarea:focus{border-color:#a8c596}
+
+    .form-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .btn.small{
+      min-height:40px;
+      padding:10px 14px;
+      font-size:.88rem;
+    }
+
+    .btn.danger{background:#6d2020}
+    .btn.ghost{background:#f0f0ea;color:var(--ink)}
+
+    .cms-hint{
+      margin-top:18px;
+      padding:16px;
+      background:#f6f6f0;
+      border-radius:18px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .post-actions{
+      margin-top:auto;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      padding-top:12px;
+    }
+
+    .empty{
+      grid-column:1/-1;
+      padding:30px;
+      border:1px dashed #cfcfc6;
+      border-radius:var(--radius);
+      color:var(--muted);
+      text-align:center;
+      background:rgba(255,255,255,.5);
+    }
+
+    footer{
+      background:var(--paper);
+      border-top:1px solid var(--line);
+      padding:50px 0;
+      margin-top:40px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:26px;
+    }
+
+    footer h2{
+      font-size:2.2rem;
+      letter-spacing:-.06em;
+      margin-bottom:12px;
+    }
+
+    @media(max-width:860px){
+      .nav{height:auto;padding:18px 0;align-items:flex-start;flex-direction:column}
+      nav{justify-content:flex-start;gap:12px}
+      .hero,.feature,.editor-layout,.footer-grid{grid-template-columns:1fr}
+      .grid-3,.posts{grid-template-columns:1fr}
+      .section-head{align-items:flex-start;flex-direction:column}
+      .about{border-radius:0;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:56px 6vw}
+      .hero-card{min-height:300px}
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">Spottvogel</div>
-    <nav>
-      <a href="#start">Start</a>
-      <a href="#rubriken">Rubriken</a>
-      <a href="#beitraege">Beiträge</a>
-      <a href="#redaktion">Redaktion</a>
-      <a href="#editor">CMS-Demo</a>
-      <a href="#impressum">Impressum</a>
-    </nav>
+    <div class="wrap nav">
+      <a class="brand" href="#start">Spottvogel</a>
+      <nav>
+        <a href="#rubriken">Rubriken</a>
+        <a href="#beitraege">Beiträge</a>
+        <a href="#cms">CMS-Demo</a>
+        <a href="#impressum">Impressum</a>
+      </nav>
+    </div>
   </header>
 
   <main id="start">
-    <section class="hero">
-      <div>
-        <span class="badge">Journalistische Schulplattform</span>
-        <h1>Spottvogel</h1>
-        <p>Beobachten. Schreiben. Schmunzeln. Ein digitales Schulmagazin für Notizen, Spottverse und kleine Lebensweisheiten aus dem Schulalltag.</p>
-        <a class="btn" href="#beitraege">Neueste Beiträge</a>
-      </div>
-      <aside class="hero-panel">
-        <small>Gebührenfrei · minimal · redaktionell</small>
-        <h2>Ein Ort für Gedanken, Beobachtungen und faire Satire.</h2>
-      </aside>
-    </section>
-
-    <section id="rubriken">
-      <h2 class="section-title">Rubriken</h2>
-      <div class="cards">
-        <article class="card">
-          <div class="icon">📝</div>
-          <h3>Notizen</h3>
-          <p>Kurze Berichte, Beobachtungen und interessante Geschichten aus dem Schulalltag.</p>
-        </article>
-        <article class="card">
-          <div class="icon">🎭</div>
-          <h3>Spottverse</h3>
-          <p>Kreative und humorvolle Verse mit einem Augenzwinkern. Witzig, aber fair.</p>
-        </article>
-        <article class="card">
-          <div class="icon">💡</div>
-          <h3>Lebensweisheiten</h3>
-          <p>Gedanken, Zitate und Erfahrungen, die zum Nachdenken anregen.</p>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <h2 class="section-title">Artikel der Woche</h2>
-      <div class="featured">
-        <div class="featured-art">
-          <small>Notizen</small>
-          <h2>Warum Montag immer zu früh kommt</h2>
-          <p>Zwischen Wecker, Schulbus und erster Stunde beginnt jede Woche mit demselben Kampf.</p>
-        </div>
-        <div class="featured-note">
-          <h3>Redaktioneller Hinweis</h3>
-          <p>Spottvogel ist humorvoll, aber respektvoll. Es werden keine Personen bloßgestellt. Inhalte dienen schulischen und journalistischen Zwecken.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="beitraege">
-      <h2 class="section-title">Aktuelle Beiträge</h2>
-      <div class="posts">
-        <article class="post"><small>Spottvers</small><h3>Der WLAN-Router spricht</h3><p>Ein humorvoller Vers über geheimnisvolle Ausfälle des Schul-WLANs.</p></article>
-        <article class="post"><small>Notiz</small><h3>Die Kunst des Zuspätkommens</h3><p>Eine kleine Beobachtung über Ausreden, Uhren und volle Flure.</p></article>
-        <article class="post"><small>Lebensweisheit</small><h3>Erfolg beginnt mit Vorbereitung</h3><p>Manchmal kostet Vorbereitung weniger Zeit als eine gute Ausrede.</p></article>
-      </div>
-    </section>
-
-    <section class="about">
-      <h2 class="section-title">Über Spottvogel</h2>
-      <p>Spottvogel ist ein journalistisches Schulprojekt, das kreative Beiträge, Beobachtungen und Gedanken aus dem Schulalltag veröffentlicht. Die Website ist gebührenfrei, übersichtlich aufgebaut und für eine einfache redaktionelle Pflege gedacht.</p>
-    </section>
-
-    <section class="editorial" id="redaktion">
-      <div>
-        <h2 class="section-title">Redaktion / CMS</h2>
-        <p>In dieser Version gibt es eine einfache CMS-Demo: Beiträge können direkt im Browser erstellt, bearbeitet, gelöscht und gespeichert werden. Die Daten bleiben lokal auf dem Gerät erhalten.</p>
-      </div>
-      <div class="cms-box">
-        <div class="cms-row"><strong>Beitrag erstellen</strong><span class="check">✓</span></div>
-        <div class="cms-row"><strong>Kategorie auswählen</strong><span class="check">✓</span></div>
-        <div class="cms-row"><strong>Text bearbeiten</strong><span class="check">✓</span></div>
-        <div class="cms-row"><strong>Veröffentlichen</strong><span class="check">✓</span></div>
-        <div class="cms-row"><strong>Beiträge verwalten</strong><span class="check">✓</span></div>
-      </div>
-    </section>
-
-    <section id="editor">
-      <h2 class="section-title">CMS-Demo: Beitrag schreiben</h2>
-      <div class="editor-form">
-        <form id="postForm">
-          <input type="hidden" id="editIndex" value="">
-          <div class="form-grid">
-            <div>
-              <label for="title">Titel</label>
-              <input id="title" type="text" placeholder="z. B. Der Kopierer gibt auf" required>
-            </div>
-            <div>
-              <label for="category">Kategorie</label>
-              <select id="category" required>
-                <option value="Notiz">Notiz</option>
-                <option value="Spottvers">Spottvers</option>
-                <option value="Lebensweisheit">Lebensweisheit</option>
-              </select>
-            </div>
-            <div class="form-full">
-              <label for="content">Beitragstext</label>
-              <textarea id="content" placeholder="Schreibe hier deinen Beitrag..." required></textarea>
-            </div>
+    <div class="wrap">
+      <section class="hero">
+        <div>
+          <span class="pill">Journalistische Schulplattform</span>
+          <h1>Spottvogel</h1>
+          <p class="lead">Beobachten. Schreiben. Schmunzeln. Ein digitales Schulmagazin für Notizen, Spottverse und kleine Lebensweisheiten aus dem Schulalltag.</p>
+          <div class="actions">
+            <a class="btn" href="#beitraege">Beiträge lesen</a>
+            <a class="btn secondary" href="#cms">Beitrag erstellen</a>
           </div>
-          <div class="form-actions">
-            <button class="btn" type="submit">Veröffentlichen</button>
-            <button class="btn-light" type="button" id="clearForm">Zurücksetzen</button>
-          </div>
-          <p class="hint">Hinweis: Diese CMS-Demo speichert Beiträge lokal im Browser. Für ein Schulprojekt zeigt sie die Grundfunktion eines Content-Management-Systems.</p>
-        </form>
-      </div>
+        </div>
 
-      <h2 class="section-title" style="margin-top:60px">Veröffentlichte Beiträge</h2>
-      <div id="managedPosts" class="manage-posts"></div>
-    </section>
+        <aside class="hero-card">
+          <small>Gebührenfrei · minimal · redaktionell</small>
+          <h2>Ein Ort für Gedanken, Beobachtungen und faire Satire.</h2>
+        </aside>
+      </section>
+
+      <section id="rubriken">
+        <div class="section-head">
+          <h2 class="section-title">Rubriken</h2>
+          <p class="section-note">Drei klare Bereiche machen die Website übersichtlich und einfach nutzbar.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="icon">📝</div>
+            <h3>Notizen</h3>
+            <p>Kurze Beobachtungen, aktuelle Themen und redaktionelle Beiträge aus dem Schulalltag.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🎭</div>
+            <h3>Spottverse</h3>
+            <p>Humorvolle Verse mit Augenzwinkern. Kreativ, witzig und fair gegenüber anderen.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">💡</div>
+            <h3>Lebensweisheiten</h3>
+            <p>Kleine Gedanken und Erkenntnisse, die zum Nachdenken anregen.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="feature">
+          <article class="feature-main">
+            <small>Artikel der Woche</small>
+            <h2>Warum Montag immer zu früh kommt</h2>
+            <p>Zwischen Wecker, Schulbus und der ersten Stunde beginnt jede Woche mit demselben Kampf.</p>
+          </article>
+
+          <aside class="feature-side">
+            <h3>Über Spottvogel</h3>
+            <p>Spottvogel ist ein journalistisches Schulprojekt, das kreative Beiträge, Beobachtungen und Gedanken aus dem Schulalltag veröffentlicht.</p>
+            <p><strong>Ziel:</strong> Informationen und Unterhaltung klar, modern und übersichtlich darstellen.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="beitraege">
+        <div class="section-head">
+          <h2 class="section-title">Beiträge</h2>
+          <p class="section-note">Hier erscheinen feste Beispielbeiträge und neue Beiträge aus der CMS-Demo.</p>
+        </div>
+
+        <div class="posts" id="postList"></div>
+      </section>
+
+      <section>
+        <div class="about">
+          <h2 class="section-title">Redaktion</h2>
+          <p>Über das Content-Management-System können neue Beiträge erstellt, einer Kategorie zugeordnet, bearbeitet und veröffentlicht werden. Diese Demo speichert Inhalte im Browser und zeigt damit die grundlegende CMS-Funktionalität.</p>
+        </div>
+      </section>
+
+      <section id="cms">
+        <div class="section-head">
+          <h2 class="section-title">CMS-Demo</h2>
+          <p class="section-note">Beiträge erstellen, bearbeiten und löschen. Die Daten bleiben im Browser gespeichert.</p>
+        </div>
+
+        <div class="editor-layout">
+          <form class="panel" id="postForm">
+            <h3>Neuen Beitrag schreiben</h3>
+
+            <input type="hidden" id="editId" />
+
+            <label for="title">Titel</label>
+            <input id="title" type="text" placeholder="z. B. Der Kopierer streikt" required />
+
+            <label for="category">Kategorie</label>
+            <select id="category" required>
+              <option value="Notizen">Notizen</option>
+              <option value="Spottverse">Spottverse</option>
+              <option value="Lebensweisheiten">Lebensweisheiten</option>
+            </select>
+
+            <label for="text">Beitragstext</label>
+            <textarea id="text" placeholder="Schreibe hier deinen Beitrag..." required></textarea>
+
+            <div class="form-actions">
+              <button class="btn small" type="submit">Veröffentlichen</button>
+              <button class="btn small ghost" type="button" id="resetBtn">Zurücksetzen</button>
+            </div>
+
+            <div class="cms-hint">
+              Hinweis: Diese CMS-Demo funktioniert ohne Server. Beiträge werden lokal im Browser gespeichert.
+            </div>
+          </form>
+
+          <div class="panel">
+            <h3>CMS-Funktionen</h3>
+            <p class="muted">Für die Produktpräsentation kannst du zeigen:</p>
+            <br />
+            <p>✓ Beitrag erstellen</p>
+            <p>✓ Kategorie auswählen</p>
+            <p>✓ Beitrag bearbeiten</p>
+            <p>✓ Beitrag löschen</p>
+            <p>✓ Veröffentlichung direkt auf der Seite anzeigen</p>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer id="impressum">
-    <div>
-      <h2>Impressum</h2>
-      <p><strong>Spottvogel</strong> — Schulprojekt</p>
-      <p>Erstellt im Rahmen der Servicepraxis.</p>
-    </div>
-    <div>
-      <p><strong>Institution:</strong> OSZ Technik Teltow</p>
-      <p><strong>Zweck:</strong> journalistisches Schulprojekt, nicht kommerziell</p>
-      <p><strong>Verantwortlich:</strong> Projektgruppe Spottvogel</p>
+    <div class="wrap footer-grid">
+      <div>
+        <h2>Impressum</h2>
+        <p>Spottvogel – Schulprojekt</p>
+        <p>OSZ Technik Teltow</p>
+      </div>
+      <div>
+        <p><strong>Verantwortlich:</strong> Jadon Hummel, FSV42</p>
+        <p><strong>Zweck:</strong> journalistisches Schulprojekt, nicht kommerziell</p>
+        <p><strong>Hinweis:</strong> Diese Website dient ausschließlich schulischen und journalistischen Zwecken.</p>
+      </div>
     </div>
   </footer>
 
   <script>
     const defaultPosts = [
-      {category:'Spottvers', title:'Der WLAN-Router spricht', content:'Ein humorvoller Vers über geheimnisvolle Ausfälle des Schul-WLANs.'},
-      {category:'Notiz', title:'Die Kunst des Zuspätkommens', content:'Eine kleine Beobachtung über Ausreden, Uhren und volle Flure.'},
-      {category:'Lebensweisheit', title:'Erfolg beginnt mit Vorbereitung', content:'Manchmal kostet Vorbereitung weniger Zeit als eine gute Ausrede.'}
+      {
+        id: "default-1",
+        title: "Der WLAN-Router spricht",
+        category: "Spottverse",
+        text: "Ein humorvoller Vers über die geheimnisvollen Ausfälle des Schul-WLANs.",
+        locked: true
+      },
+      {
+        id: "default-2",
+        title: "Die Kunst des Zuspätkommens",
+        category: "Notizen",
+        text: "Eine kurze Beobachtung über volle Flure, schnelle Schritte und kreative Ausreden.",
+        locked: true
+      },
+      {
+        id: "default-3",
+        title: "Erfolg beginnt mit Vorbereitung",
+        category: "Lebensweisheiten",
+        text: "Manchmal kostet Vorbereitung weniger Zeit als Ausreden.",
+        locked: true
+      }
     ];
 
-    const form = document.getElementById('postForm');
-    const titleInput = document.getElementById('title');
-    const categoryInput = document.getElementById('category');
-    const contentInput = document.getElementById('content');
-    const editIndexInput = document.getElementById('editIndex');
-    const managedPosts = document.getElementById('managedPosts');
-    const clearForm = document.getElementById('clearForm');
+    const storageKey = "spottvogel_posts_clean";
+    const form = document.getElementById("postForm");
+    const postList = document.getElementById("postList");
+    const resetBtn = document.getElementById("resetBtn");
 
-    function getPosts(){
-      return JSON.parse(localStorage.getItem('spottvogelPosts')) || defaultPosts;
+    function getSavedPosts(){
+      return JSON.parse(localStorage.getItem(storageKey) || "[]");
     }
 
     function savePosts(posts){
-      localStorage.setItem('spottvogelPosts', JSON.stringify(posts));
+      localStorage.setItem(storageKey, JSON.stringify(posts));
     }
 
-    function resetForm(){
-      form.reset();
-      editIndexInput.value = '';
-      form.querySelector('button[type="submit"]').textContent = 'Veröffentlichen';
+    function allPosts(){
+      return [...defaultPosts, ...getSavedPosts()];
+    }
+
+    function escapeHTML(value){
+      return value.replace(/[&<>"']/g, char => ({
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#039;"
+      }[char]));
     }
 
     function renderPosts(){
-      const posts = getPosts();
-      managedPosts.innerHTML = '';
-      posts.forEach((post, index) => {
-        const article = document.createElement('article');
-        article.className = 'post';
+      const posts = allPosts();
+      postList.innerHTML = "";
+
+      if(posts.length === 0){
+        postList.innerHTML = '<div class="empty">Noch keine Beiträge vorhanden.</div>';
+        return;
+      }
+
+      posts.forEach(post => {
+        const article = document.createElement("article");
+        article.className = "post";
         article.innerHTML = `
-          <small>${post.category}</small>
-          <h3>${post.title}</h3>
-          <p>${post.content}</p>
-          <div class="post-actions">
-            <button class="small-btn" onclick="editPost(${index})">Bearbeiten</button>
-            <button class="small-btn secondary" onclick="deletePost(${index})">Löschen</button>
-          </div>
+          <span class="tag">${escapeHTML(post.category)}</span>
+          <h3>${escapeHTML(post.title)}</h3>
+          <p>${escapeHTML(post.text)}</p>
+          ${post.locked ? "" : `
+            <div class="post-actions">
+              <button class="btn small ghost" onclick="editPost('${post.id}')">Bearbeiten</button>
+              <button class="btn small danger" onclick="deletePost('${post.id}')">Löschen</button>
+            </div>
+          `}
         `;
-        managedPosts.appendChild(article);
+        postList.appendChild(article);
       });
     }
 
-    function editPost(index){
-      const posts = getPosts();
-      titleInput.value = posts[index].title;
-      categoryInput.value = posts[index].category;
-      contentInput.value = posts[index].content;
-      editIndexInput.value = index;
-      form.querySelector('button[type="submit"]').textContent = 'Änderungen speichern';
-      document.getElementById('editor').scrollIntoView({behavior:'smooth'});
-    }
-
-    function deletePost(index){
-      const posts = getPosts();
-      posts.splice(index, 1);
-      savePosts(posts);
-      renderPosts();
-      resetForm();
-    }
-
-    form.addEventListener('submit', function(event){
+    form.addEventListener("submit", event => {
       event.preventDefault();
-      const posts = getPosts();
-      const newPost = {
-        title: titleInput.value.trim(),
-        category: categoryInput.value,
-        content: contentInput.value.trim()
-      };
-      const editIndex = editIndexInput.value;
-      if(editIndex === ''){
-        posts.unshift(newPost);
+
+      const editId = document.getElementById("editId").value;
+      const title = document.getElementById("title").value.trim();
+      const category = document.getElementById("category").value;
+      const text = document.getElementById("text").value.trim();
+
+      if(!title || !text) return;
+
+      let posts = getSavedPosts();
+
+      if(editId){
+        posts = posts.map(post => post.id === editId ? { ...post, title, category, text } : post);
       } else {
-        posts[Number(editIndex)] = newPost;
+        posts.push({
+          id: Date.now().toString(),
+          title,
+          category,
+          text,
+          locked: false
+        });
       }
+
       savePosts(posts);
+      form.reset();
+      document.getElementById("editId").value = "";
+      form.querySelector("button[type='submit']").textContent = "Veröffentlichen";
       renderPosts();
-      resetForm();
+      document.getElementById("beitraege").scrollIntoView({behavior:"smooth"});
     });
 
-    clearForm.addEventListener('click', resetForm);
+    window.editPost = function(id){
+      const post = getSavedPosts().find(post => post.id === id);
+      if(!post) return;
+
+      document.getElementById("editId").value = post.id;
+      document.getElementById("title").value = post.title;
+      document.getElementById("category").value = post.category;
+      document.getElementById("text").value = post.text;
+      form.querySelector("button[type='submit']").textContent = "Änderungen speichern";
+      document.getElementById("cms").scrollIntoView({behavior:"smooth"});
+    }
+
+    window.deletePost = function(id){
+      const posts = getSavedPosts().filter(post => post.id !== id);
+      savePosts(posts);
+      renderPosts();
+    }
+
+    resetBtn.addEventListener("click", () => {
+      form.reset();
+      document.getElementById("editId").value = "";
+      form.querySelector("button[type='submit']").textContent = "Veröffentlichen";
+    });
+
     renderPosts();
   </script>
 </body>
