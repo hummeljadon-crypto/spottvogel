@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spottvogel</title>
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Arial,Helvetica,sans-serif;background:#f7f7f4;color:#111;line-height:1.6}header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.9);border-bottom:1px solid #e8e8e3;position:sticky;top:0;z-index:10;backdrop-filter:blur(10px)}.logo{font-size:1.4rem;font-weight:900;letter-spacing:-.05em}nav a{margin-left:22px;text-decoration:none;color:#111;font-size:.95rem}nav a:hover{text-decoration:underline}.hero{padding:95px 7% 75px;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}.badge{display:inline-block;background:#e5efdc;border:1px solid #d2e2c7;padding:8px 14px;border-radius:999px;font-size:.9rem;margin-bottom:22px}h1{font-size:clamp(4rem,10vw,8.5rem);line-height:.88;letter-spacing:-.09em;margin-bottom:24px}.hero p{font-size:1.25rem;color:#444;max-width:650px;margin-bottom:30px}.btn{display:inline-block;background:#111;color:#fff;text-decoration:none;padding:14px 24px;border-radius:999px;font-weight:800}.hero-panel{background:#111;color:white;border-radius:34px;min-height:390px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 28px 70px rgba(0,0,0,.14)}.hero-panel small{color:#bfe8aa}.hero-panel h2{font-size:2.7rem;line-height:.95;letter-spacing:-.06em}section{padding:80px 7%}.section-title{font-size:clamp(2.2rem,5vw,4.3rem);line-height:1;letter-spacing:-.07em;margin-bottom:35px}.cards,.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card,.post,.cms-box{background:#fff;border:1px solid #e4e4de;border-radius:26px;padding:28px}.card{min-height:230px}.icon{font-size:2rem;margin-bottom:16px}.card h3,.post h3{font-size:1.45rem;letter-spacing:-.04em;margin-bottom:12px}.card p,.post p,.about p,.editorial p,footer p{color:#555}.featured{display:grid;grid-template-columns:.85fr 1.15fr;gap:26px;align-items:stretch}.featured-art{background:#111;color:#fff;border-radius:32px;padding:38px;min-height:310px;display:flex;flex-direction:column;justify-content:flex-end}.featured-art small{color:#bfe8aa}.featured-art h2{font-size:3rem;line-height:.95;letter-spacing:-.06em;margin:12px 0}.featured-note{background:#e5efdc;border-radius:32px;padding:38px}.post small{display:block;color:#777;margin-bottom:10px}.about{margin:50px 7%;padding:70px;background:#111;color:#fff;border-radius:38px}.about p{color:#ddd;max-width:850px;font-size:1.12rem}.editorial{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.cms-row{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:16px 0}.cms-row:last-child{border-bottom:0}.check{font-weight:900}footer{padding:50px 7%;display:grid;grid-template-columns:1fr 1fr;gap:26px;background:#fff;border-top:1px solid #e4e4de}footer h2{font-size:2.2rem;letter-spacing:-.06em;margin-bottom:14px}@media(max-width:850px){header{flex-direction:column;gap:14px}nav{text-align:center}nav a{margin:0 7px;font-size:.9rem}.hero,.featured,.editorial,footer{grid-template-columns:1fr}.cards,.posts{grid-template-columns:1fr}.about{margin:20px 0;border-radius:0;padding:60px 7%}.hero-panel{min-height:300px}}
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Arial,Helvetica,sans-serif;background:#f7f7f4;color:#111;line-height:1.6}header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.9);border-bottom:1px solid #e8e8e3;position:sticky;top:0;z-index:10;backdrop-filter:blur(10px)}.logo{font-size:1.4rem;font-weight:900;letter-spacing:-.05em}nav a{margin-left:22px;text-decoration:none;color:#111;font-size:.95rem}nav a:hover{text-decoration:underline}.hero{padding:95px 7% 75px;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}.badge{display:inline-block;background:#e5efdc;border:1px solid #d2e2c7;padding:8px 14px;border-radius:999px;font-size:.9rem;margin-bottom:22px}h1{font-size:clamp(4rem,10vw,8.5rem);line-height:.88;letter-spacing:-.09em;margin-bottom:24px}.hero p{font-size:1.25rem;color:#444;max-width:650px;margin-bottom:30px}.btn{display:inline-block;background:#111;color:#fff;text-decoration:none;padding:14px 24px;border-radius:999px;font-weight:800}.hero-panel{background:#111;color:white;border-radius:34px;min-height:390px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 28px 70px rgba(0,0,0,.14)}.hero-panel small{color:#bfe8aa}.hero-panel h2{font-size:2.7rem;line-height:.95;letter-spacing:-.06em}section{padding:80px 7%}.section-title{font-size:clamp(2.2rem,5vw,4.3rem);line-height:1;letter-spacing:-.07em;margin-bottom:35px}.cards,.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card,.post,.cms-box{background:#fff;border:1px solid #e4e4de;border-radius:26px;padding:28px}.card{min-height:230px}.icon{font-size:2rem;margin-bottom:16px}.card h3,.post h3{font-size:1.45rem;letter-spacing:-.04em;margin-bottom:12px}.card p,.post p,.about p,.editorial p,footer p{color:#555}.featured{display:grid;grid-template-columns:.85fr 1.15fr;gap:26px;align-items:stretch}.featured-art{background:#111;color:#fff;border-radius:32px;padding:38px;min-height:310px;display:flex;flex-direction:column;justify-content:flex-end}.featured-art small{color:#bfe8aa}.featured-art h2{font-size:3rem;line-height:.95;letter-spacing:-.06em;margin:12px 0}.featured-note{background:#e5efdc;border-radius:32px;padding:38px}.post small{display:block;color:#777;margin-bottom:10px}.about{margin:50px 7%;padding:70px;background:#111;color:#fff;border-radius:38px}.about p{color:#ddd;max-width:850px;font-size:1.12rem}.editorial{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.cms-row{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:16px 0}.cms-row:last-child{border-bottom:0}.check{font-weight:900}footer{padding:50px 7%;display:grid;grid-template-columns:1fr 1fr;gap:26px;background:#fff;border-top:1px solid #e4e4de}footer h2{font-size:2.2rem;letter-spacing:-.06em;margin-bottom:14px}@media(max-width:850px){header{flex-direction:column;gap:14px}nav{text-align:center}nav a{margin:0 7px;font-size:.9rem}.hero,.featured,.editorial,footer{grid-template-columns:1fr}.cards,.posts,.manage-posts{grid-template-columns:1fr}.about{margin:20px 0;border-radius:0;padding:60px 7%}.hero-panel{min-height:300px}}
   </style>
 </head>
 <body>
@@ -16,6 +16,7 @@
       <a href="#rubriken">Rubriken</a>
       <a href="#beitraege">Beiträge</a>
       <a href="#redaktion">Redaktion</a>
+      <a href="#editor">CMS-Demo</a>
       <a href="#impressum">Impressum</a>
     </nav>
   </header>
@@ -87,7 +88,7 @@
     <section class="editorial" id="redaktion">
       <div>
         <h2 class="section-title">Redaktion / CMS</h2>
-        <p>Über ein Content-Management-System können neue Beiträge erstellt, bearbeitet, Kategorien zugeordnet und veröffentlicht werden. So bleibt die Website leicht pflegbar.</p>
+        <p>In dieser Version gibt es eine einfache CMS-Demo: Beiträge können direkt im Browser erstellt, bearbeitet, gelöscht und gespeichert werden. Die Daten bleiben lokal auf dem Gerät erhalten.</p>
       </div>
       <div class="cms-box">
         <div class="cms-row"><strong>Beitrag erstellen</strong><span class="check">✓</span></div>
@@ -96,6 +97,41 @@
         <div class="cms-row"><strong>Veröffentlichen</strong><span class="check">✓</span></div>
         <div class="cms-row"><strong>Beiträge verwalten</strong><span class="check">✓</span></div>
       </div>
+    </section>
+
+    <section id="editor">
+      <h2 class="section-title">CMS-Demo: Beitrag schreiben</h2>
+      <div class="editor-form">
+        <form id="postForm">
+          <input type="hidden" id="editIndex" value="">
+          <div class="form-grid">
+            <div>
+              <label for="title">Titel</label>
+              <input id="title" type="text" placeholder="z. B. Der Kopierer gibt auf" required>
+            </div>
+            <div>
+              <label for="category">Kategorie</label>
+              <select id="category" required>
+                <option value="Notiz">Notiz</option>
+                <option value="Spottvers">Spottvers</option>
+                <option value="Lebensweisheit">Lebensweisheit</option>
+              </select>
+            </div>
+            <div class="form-full">
+              <label for="content">Beitragstext</label>
+              <textarea id="content" placeholder="Schreibe hier deinen Beitrag..." required></textarea>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn" type="submit">Veröffentlichen</button>
+            <button class="btn-light" type="button" id="clearForm">Zurücksetzen</button>
+          </div>
+          <p class="hint">Hinweis: Diese CMS-Demo speichert Beiträge lokal im Browser. Für ein Schulprojekt zeigt sie die Grundfunktion eines Content-Management-Systems.</p>
+        </form>
+      </div>
+
+      <h2 class="section-title" style="margin-top:60px">Veröffentlichte Beiträge</h2>
+      <div id="managedPosts" class="manage-posts"></div>
     </section>
   </main>
 
@@ -111,5 +147,94 @@
       <p><strong>Verantwortlich:</strong> Projektgruppe Spottvogel</p>
     </div>
   </footer>
+
+  <script>
+    const defaultPosts = [
+      {category:'Spottvers', title:'Der WLAN-Router spricht', content:'Ein humorvoller Vers über geheimnisvolle Ausfälle des Schul-WLANs.'},
+      {category:'Notiz', title:'Die Kunst des Zuspätkommens', content:'Eine kleine Beobachtung über Ausreden, Uhren und volle Flure.'},
+      {category:'Lebensweisheit', title:'Erfolg beginnt mit Vorbereitung', content:'Manchmal kostet Vorbereitung weniger Zeit als eine gute Ausrede.'}
+    ];
+
+    const form = document.getElementById('postForm');
+    const titleInput = document.getElementById('title');
+    const categoryInput = document.getElementById('category');
+    const contentInput = document.getElementById('content');
+    const editIndexInput = document.getElementById('editIndex');
+    const managedPosts = document.getElementById('managedPosts');
+    const clearForm = document.getElementById('clearForm');
+
+    function getPosts(){
+      return JSON.parse(localStorage.getItem('spottvogelPosts')) || defaultPosts;
+    }
+
+    function savePosts(posts){
+      localStorage.setItem('spottvogelPosts', JSON.stringify(posts));
+    }
+
+    function resetForm(){
+      form.reset();
+      editIndexInput.value = '';
+      form.querySelector('button[type="submit"]').textContent = 'Veröffentlichen';
+    }
+
+    function renderPosts(){
+      const posts = getPosts();
+      managedPosts.innerHTML = '';
+      posts.forEach((post, index) => {
+        const article = document.createElement('article');
+        article.className = 'post';
+        article.innerHTML = `
+          <small>${post.category}</small>
+          <h3>${post.title}</h3>
+          <p>${post.content}</p>
+          <div class="post-actions">
+            <button class="small-btn" onclick="editPost(${index})">Bearbeiten</button>
+            <button class="small-btn secondary" onclick="deletePost(${index})">Löschen</button>
+          </div>
+        `;
+        managedPosts.appendChild(article);
+      });
+    }
+
+    function editPost(index){
+      const posts = getPosts();
+      titleInput.value = posts[index].title;
+      categoryInput.value = posts[index].category;
+      contentInput.value = posts[index].content;
+      editIndexInput.value = index;
+      form.querySelector('button[type="submit"]').textContent = 'Änderungen speichern';
+      document.getElementById('editor').scrollIntoView({behavior:'smooth'});
+    }
+
+    function deletePost(index){
+      const posts = getPosts();
+      posts.splice(index, 1);
+      savePosts(posts);
+      renderPosts();
+      resetForm();
+    }
+
+    form.addEventListener('submit', function(event){
+      event.preventDefault();
+      const posts = getPosts();
+      const newPost = {
+        title: titleInput.value.trim(),
+        category: categoryInput.value,
+        content: contentInput.value.trim()
+      };
+      const editIndex = editIndexInput.value;
+      if(editIndex === ''){
+        posts.unshift(newPost);
+      } else {
+        posts[Number(editIndex)] = newPost;
+      }
+      savePosts(posts);
+      renderPosts();
+      resetForm();
+    });
+
+    clearForm.addEventListener('click', resetForm);
+    renderPosts();
+  </script>
 </body>
 </html>
